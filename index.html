@@ -32,7 +32,7 @@
                     <li class="nav-item"><a href="#">Video</a></li>
                 </ul>
                 <div class="nav-search">
-                    <div class="nav-search-info" id="search">
+                    <div class="nav-search-info" data-status="0" id="search">
                         <input type="text" placeholder="Search">
                     </div>
                     <div class="nav-search-icon" onclick="search()">
@@ -353,7 +353,15 @@
     <script src="./assets/js/bootstrap.bundle.min.js"></script>
     <script>
         function search() {
-            document.getElementById("search").style.display = 'block';
+            if (document.getElementById('search').getAttribute('data-status') == '0') {
+                document.getElementById("search").style.display = 'block';
+                document.getElementById("search").setAttribute('data-status', '1');
+            } else {
+                document.getElementById("search").style.display = 'none';
+                document.getElementById("search").setAttribute('data-status', '0');
+            }
+
+
         }
     </script>
 </body>
